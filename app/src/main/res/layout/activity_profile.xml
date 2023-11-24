@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.profile.ui.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80pxh"
+        android:background="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewImage"
+            android:layout_width="@dimen/_50pxh"
+            android:layout_height="@dimen/_50pxh"
+            android:layout_marginStart="@dimen/_14pxh"
+            app:cardCornerRadius="@dimen/_360pxh"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/tv_item_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:ignore="ContentDescription,MissingConstraints"
+                tools:src="@drawable/img_job" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/name_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_user"
+            android:layout_marginTop="@dimen/_22pxv"
+            android:layout_marginStart="@dimen/_8pxh"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/cardViewImage"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_email"
+            android:layout_marginTop="@dimen/_4pxh"
+            android:layout_marginStart="@dimen/_8pxh"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/cardViewImage"
+            app:layout_constraintTop_toBottomOf="@+id/name_user" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_edit_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

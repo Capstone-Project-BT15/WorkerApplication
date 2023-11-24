@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jasane</string>
+    <string name="loading">Loading...</string>
+    <string name="no_internet_connection">No internet connection!</string>
+    <string name="msg_selamat_datang">Welcome to JASANE</string>
+    <string name="lbl_mulai">Start</string>
+    <string name="msg_tempat_di_mana">A place where your needs are our top priority. Start exploring our services now!</string>
+    <string name="lbl_jasane">JASANE</string>
+    <string name="login">Login</string>
+    <string name="title_login">Enter your email and password and enjoy our services.</string>
+    <string name="masukkan_email_anda">Enter Your Email</string>
+    <string name="format_email_salah">Invalid Email Format</string>
+    <string name="masukkan_nama_anda">Enter Your Name</string>
+    <string name="masukkan_password_anda">Enter Your Password</string>
+    <string name="password_kurang_dari_8">Password must be at least 8 characters long</string>
+    <string name="password">Password</string>
+    <string name="belum_punya_akun">Don\'t have an account yet?</string>
+    <string name="daftar">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="name_email">albert@gmail.com</string>
+    <string name="lbl_register">Complete Your Data!</string>
+    <string name="name">Name</string>
+    <string name="sudah_punya_akun">Already Have an Account?</string>
+    <string name="job_name">Wash Dishes</string>
+    <string name="anggaran">Budget</string>
+    <string name="strip">-</string>
+    <string name="biaya_terendah">Rp100.000</string>
+    <string name="biaya_tertinggi">Rp120.000</string>
+    <string name="kerja_lepas">Freelance Work</string>
+    <string name="maps">Maps</string>
+    <string name="description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.  through the cites of the word in classical literature, discovered the undoubtable
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.  through the cites of the word in classical literature, discovered the undoubtable </string>
+    <string name="title_description">Description</string>
+    <string name="ambil_pekerjaan">Take the Job</string>
+    <string name="jarak">7 Kilometers</string>
+    <string name="nomor_handphone">Phone Number</string>
+    <string name="masukkan_no_handphone">Enter Your Phone Number</string>
+    <string name="home">Home</string>
+    <string name="pekerjaan">Job</string>
+    <string name="penawaran">Offer</string>
+    <string name="profile">Profile</string>
+    <string name="konfirmasi_password">Confirm Password</string>
+    <string name="name_user">Albert</string>
+    <string name="pending">Pending</string>
+    <string name="finish">Finish</string>
+    <string name="reject">Reject</string>
+    <string name="accepted">Accepted</string>
+    <string name="date">11-01-2024</string>
+
+</resources>

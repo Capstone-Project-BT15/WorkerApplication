@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.detailJob.ui.detailJobActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageHeroOnboarding"
+                android:layout_width="@dimen/_360pxh"
+                android:layout_height="@dimen/_250pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_job"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/img_job" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/titleJob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16pxv"
+            android:text="@string/job_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewImage" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4pxv"
+            android:text="@string/anggaran"
+            android:textColor="@color/gray_600"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleJob" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4pxv"
+            android:layout_marginEnd="@dimen/_4pxv"
+            android:text="@string/biaya_terendah"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintEnd_toStartOf="@+id/textView6"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4pxv"
+            android:text="@string/strip"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4pxv"
+            android:layout_marginTop="@dimen/_4pxv"
+            android:text="@string/biaya_tertinggi"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView3"
+            app:layout_constraintHorizontal_bias="0.050"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewDetail"
+            android:layout_width="@dimen/_300pxh"
+            android:layout_height="@dimen/_80pxh"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            app:cardCornerRadius="@dimen/_12pxh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ImageViewDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_46pxh"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_date_range_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/date"
+                    android:textSize="@dimen/_12sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="@+id/ImageViewDate"
+                    app:layout_constraintStart_toStartOf="@+id/ImageViewDate"
+                    app:layout_constraintTop_toBottomOf="@+id/ImageViewDate" />
+
+                <ImageView
+                    android:id="@+id/line1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ImageViewTimelapse"
+                    app:layout_constraintStart_toEndOf="@+id/ImageViewDate"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ImageViewTimelapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_66pxh"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_timelapse_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ImageViewDate"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/kerja_lepas"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/ImageViewTimelapse"
+                    app:layout_constraintStart_toStartOf="@+id/ImageViewTimelapse"
+                    app:layout_constraintTop_toBottomOf="@+id/ImageViewTimelapse" />
+
+                <ImageView
+                    android:id="@+id/line2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/line"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ImageViewLocation"
+                    app:layout_constraintStart_toEndOf="@+id/ImageViewTimelapse"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ImageViewLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_66pxh"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/baseline_location_on_24"
+                    app:layout_constraintStart_toEndOf="@+id/ImageViewTimelapse"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/jarak"
+                    android:textSize="@dimen/_12sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="@+id/ImageViewLocation"
+                    app:layout_constraintStart_toStartOf="@+id/ImageViewLocation"
+                    app:layout_constraintTop_toBottomOf="@+id/ImageViewLocation" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/titleMaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginTop="@dimen/_16pxh"
+            android:text="@string/maps"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewDetail" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewImageMaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_12sp"
+            app:cardCornerRadius="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleMaps">
+
+            <ImageView
+                android:id="@+id/imageMaps"
+                android:layout_width="@dimen/_360pxh"
+                android:layout_height="@dimen/_150pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/figmap"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/figmap" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/title_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginTop="@dimen/_12pxh"
+            android:text="@string/title_description"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewImageMaps" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/_32pxh"
+            android:text="@string/description"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_description" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_44pxh"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="@dimen/_32pxh"
+            android:background="@drawable/rounded_button"
+            android:text="@string/ambil_pekerjaan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
