@@ -32,7 +32,7 @@ https://insert-koin.io/
 
 ### App Navigation
 
-Check your app\'s UI from the AppNavigation screens of your app.
+
 
 ### Package Structure
 
