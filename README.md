@@ -7,7 +7,6 @@ Android Studio Giraffe | 2022.3.1 Patch 1
 
 Current Kotlin Version 1.9.0
 
-
 ### SDK Versions
 
 compileSdkVersion 34
@@ -31,8 +30,6 @@ https://material.io/develop/android
 https://insert-koin.io/
 
 ### App Navigation
-
-
 
 ### Package Structure
 

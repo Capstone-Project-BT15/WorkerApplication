@@ -47,5 +47,13 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
     <string name="reject">Reject</string>
     <string name="accepted">Accepted</string>
     <string name="date">11-01-2024</string>
+    <string name="address">Jalan Tanjung Duren Timur III RT.05/RW 02, Tanjung Duren, Kec. Tanah Sereal, Jakarta, Jawa Barat.</string>
+    <string name="lbl_no_handphone">085187833232</string>
+    <string name="rate_offer">The rate you want to offer</string>
+    <string name="masukkan_nominalnya">Enter Bid</string>
+    <string name="txt_description">Your Experience</string>
+    <string name="lbl_Description">Explain the experience</string>
+    <string name="pasang_penawaran">Place Bid</string>
+    <string name="pin_point">PinPoint: %s</string>
 
 </resources>

@@ -2,6 +2,7 @@ package corp.jasane.worker.modules.maps.ui
 
 import android.Manifest
 import android.app.Dialog
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
@@ -27,6 +28,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import corp.jasane.worker.R
+import corp.jasane.worker.modules.takeJob.ui.TakeJobActivity
 import java.io.IOException
 import java.util.*
 
@@ -75,6 +77,10 @@ class MapsFragment : Fragment() {
             Log.d("location User", "$markerPosition")
             updateAddressText(markerPosition)
             textView.invalidate()
+            val intent = Intent(requireContext(), TakeJobActivity::class.java)
+            // Pass any data you want to the TakeJobActivity using intent extras
+            intent.putExtra("location", markerPosition?.toString())
+            startActivity(intent)
         }
 
         if (ContextCompat.checkSelfPermission(
@@ -134,7 +140,7 @@ class MapsFragment : Fragment() {
             try {
                 val addresses = geocoder.getFromLocation(it.latitude, it.longitude, 1)
                 val city = addresses?.firstOrNull()?.getAddressLine(0) ?: "Unknown"
-                textView.text = "Address: $city"
+                textView.text = "PinPoint: $city"
             } catch (e: IOException) {
                 e.printStackTrace()
             }
