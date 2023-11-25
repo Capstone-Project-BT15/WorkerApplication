@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.log
 
 class HomeFragmentViewModel(private val userRepository: UserRepository, private val apiService: ApiService): ViewModel() {
 

@@ -30,8 +30,7 @@ class DetailJobActivity : AppCompatActivity() {
         binding = ActivityDetailJobBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this))
-            .get(DetailJobViewModel::class.java)
+        viewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this))[DetailJobViewModel::class.java]
 
         progressDialog = Dialog(this)
         progressDialog.setContentView(R.layout.progress_dialog)

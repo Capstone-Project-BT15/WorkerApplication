@@ -7,6 +7,7 @@
     tools:context=".modules.profile.ui.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/card_view_user"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_80pxh"
         android:background="@color/blue"
@@ -70,5 +71,29 @@
             tools:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardViewLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_90pxh"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:layout_marginEnd="@dimen/_16pxh"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_user">
+
+        <TextView
+            android:id="@+id/textViewLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/logout"
+            android:textSize="18sp" />
+    </com.google.android.material.card.MaterialCardView>
 
 </FrameLayout>

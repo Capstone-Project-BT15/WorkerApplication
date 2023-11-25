@@ -43,7 +43,7 @@
             android:name=".modules.detailJob.ui.DetailJobActivity"
             android:exported="false" />
         <activity
-            android:name=".modules.register.ui.registerActivity"
+            android:name=".modules.register.ui.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".modules.login.ui.LoginActivity"

@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_12pxh"
                 android:layout_marginTop="@dimen/_22pxh"
-                android:text="@string/job_name"
+                android:text="@string/alamat_rumah"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/image_mark"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -210,7 +210,7 @@
                 tools:text="@string/anggaran" />
 
             <TextView
-                android:id="@+id/lowPrice"
+                android:id="@+id/low_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_18pxh"
@@ -230,12 +230,12 @@
                 android:text="@string/strip"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_10sp"
-                app:layout_constraintStart_toEndOf="@+id/lowPrice"
+                app:layout_constraintStart_toEndOf="@+id/low_price"
                 app:layout_constraintTop_toBottomOf="@+id/job_offer_detail"
                 tools:ignore="MissingConstraints" />
 
             <TextView
-                android:id="@+id/highPrice"
+                android:id="@+id/high_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_4pxh"
@@ -272,7 +272,7 @@
         app:startIconDrawable="@drawable/rupiah">
 
         <corp.jasane.worker.appcomponents.utility.OfferTextInputLayout
-            android:id="@+id/phoneEditText"
+            android:id="@+id/offer_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -305,7 +305,7 @@
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_desciption"
+            android:id="@+id/edit_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

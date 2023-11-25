@@ -1,10 +1,11 @@
-package corp.jasane.worker.modules.login.ui
+package corp.jasane.worker.modules.register.ui
 
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -13,29 +14,30 @@ import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import corp.jasane.worker.R
 import corp.jasane.worker.data.pref.UserModel
+import corp.jasane.worker.data.response.LoginResponse
+import corp.jasane.worker.data.response.RegisterResponse
 import corp.jasane.worker.databinding.ActivityLoginBinding
+import corp.jasane.worker.databinding.ActivityRegisterBinding
 import corp.jasane.worker.modules.ViewModelFactory
 import corp.jasane.worker.modules.home.ui.HomeActivity
-import corp.jasane.worker.data.response.LoginResponse
 import corp.jasane.worker.modules.login.data.viewmodel.LoginActivityViewModel
-import corp.jasane.worker.modules.register.ui.RegisterActivity
+import corp.jasane.worker.modules.login.ui.LoginActivity
+import corp.jasane.worker.modules.register.data.viewModel.RegisterActivityViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
-    private val viewModel by viewModels<LoginActivityViewModel> {
+    private val viewModel by viewModels<RegisterActivityViewModel> {
         ViewModelFactory.getInstance(this)
     }
-    private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityRegisterBinding
     private lateinit var progressDialog: Dialog
-
-
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         progressDialog = Dialog(this)
@@ -43,7 +45,8 @@ class LoginActivity : AppCompatActivity() {
         progressDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
         progressDialog.setCancelable(false)
 
-        val constraintLayout: ConstraintLayout = findViewById(R.id.constraintLayoutLogin)
+        val constraintLayout: ConstraintLayout = findViewById(R.id.constraintRegister)
+
         constraintLayout.setOnTouchListener { v, event ->
             val view: View? = currentFocus
             if (view != null) {
@@ -54,27 +57,28 @@ class LoginActivity : AppCompatActivity() {
             v.performClick()
             true
         }
-
         setupAction()
     }
 
     private fun setupAction() {
-        binding.loginButton.setOnClickListener {
+        binding.registerButton.setOnClickListener {
             showLoading()
+            val fullName = binding.nameEditText.text.toString()
+            val telephone = binding.phoneEditText.text.toString()
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
-            viewModel.login(email, password).enqueue(object : Callback<LoginResponse> {
-                override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+            val passwordConfirmation = binding.confirmPasswordEditText.text.toString()
+            viewModel.register(fullName, telephone, email, password, passwordConfirmation)
+                .enqueue(object : Callback<RegisterResponse> {
+                override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
                     if (response.isSuccessful) {
-                        val loginResponse = response.body()
-                        if (loginResponse != null) {
-                            val message = loginResponse.message
-                            if (message == "Login Success") {
+                        val registerResponse = response.body()
+                        if (registerResponse != null) {
                                 hideLoading()
-                                // Logika jika login berhasil
-                                val user = UserModel(loginResponse.access_token)
+
+                                val user = UserModel(registerResponse.access_token)
                                 viewModel.saveSession(user)
-                                AlertDialog.Builder(this@LoginActivity).apply {
+                                AlertDialog.Builder(this@RegisterActivity).apply {
                                     setTitle(R.string.yeah)
                                     setMessage(R.string.berhasil_login)
                                     val intent = Intent(context, HomeActivity::class.java)
@@ -85,14 +89,13 @@ class LoginActivity : AppCompatActivity() {
                                     create()
                                     show()
                                     Toast.makeText(
-                                        this@LoginActivity,
+                                        this@RegisterActivity,
                                         R.string.berhasil_login,
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }
-                            }
                         } else {
-                            AlertDialog.Builder(this@LoginActivity).apply {
+                            AlertDialog.Builder(this@RegisterActivity).apply {
                                 setTitle(R.string.gagal_login)
                                 setMessage(R.string.username_password_salah)
                                 setPositiveButton(R.string.oke) { _, _ ->
@@ -100,22 +103,14 @@ class LoginActivity : AppCompatActivity() {
                                 create()
                                 show()
                             }
-                            Toast.makeText(this@LoginActivity, R.string.gagal_login, Toast.LENGTH_SHORT).show()
-                        }
-                    } else {
-                        AlertDialog.Builder(this@LoginActivity).apply {
-                            setTitle(R.string.gagal_login)
-                            setMessage(R.string.username_password_salah)
-                            setPositiveButton(R.string.oke) { _, _ ->
-                            }
-                            create()
-                            show()
+                            Toast.makeText(this@RegisterActivity, R.string.gagal_login, Toast.LENGTH_SHORT).show()
                         }
                     }
+                    Log.d("registerViewModel","${viewModel.register(email, fullName, telephone, password, passwordConfirmation)}")
                 }
 
-                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                    AlertDialog.Builder(this@LoginActivity).apply {
+                override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                    AlertDialog.Builder(this@RegisterActivity).apply {
                         setTitle(R.string.gagal_login)
                         setMessage(R.string.gagal_memuat_data)
                         setPositiveButton(R.string.oke) { _, _ ->
@@ -127,8 +122,8 @@ class LoginActivity : AppCompatActivity() {
             })
         }
 
-        binding.textRegister.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+        binding.textLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 

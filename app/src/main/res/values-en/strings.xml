@@ -61,4 +61,6 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
     <string name="gagal_memuat_data">Failed to load data. Please check your internet connection or try again later.</string>
     <string name="username_password_salah">Incorrect Username or Password</string>
     <string name="oke">OK</string>
+    <string name="alamat_rumah">Your Home Address</string>
+    <string name="logout">Logout</string>
 </resources>

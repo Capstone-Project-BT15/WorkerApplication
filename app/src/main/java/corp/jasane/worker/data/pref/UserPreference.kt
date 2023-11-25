@@ -35,11 +35,11 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
-    suspend fun getToken(): String {
-        return dataStore.data.map { preferences ->
-            preferences[ACCESS_TOKEN] ?: ""
-        }.first()
-    }
+//    suspend fun getToken(): String {
+//        return dataStore.data.map { preferences ->
+//            preferences[ACCESS_TOKEN] ?: ""
+//        }.first()
+//    }
 
     suspend fun logout() {
         dataStore.edit { preferences ->

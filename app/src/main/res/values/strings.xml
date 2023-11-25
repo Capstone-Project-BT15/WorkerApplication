@@ -61,4 +61,6 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
     <string name="gagal_memuat_data">Gagal memuat data. Periksa koneksi internet Anda atau coba lagi nanti.</string>
     <string name="username_password_salah">Username atau Password Anda Salah</string>
     <string name="oke">Oke</string>
+    <string name="alamat_rumah">Alamat Rumah Anda</string>
+    <string name="logout">Keluar</string>
 </resources>

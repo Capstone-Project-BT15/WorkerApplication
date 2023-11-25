@@ -1,8 +1,11 @@
 package corp.jasane.worker.data.retrofit
 
+import corp.jasane.worker.data.response.GetJobDetailResponse
 import corp.jasane.worker.data.response.GetWorkResponse
 import corp.jasane.worker.data.response.HomeUserResponse
 import corp.jasane.worker.data.response.LoginResponse
+import corp.jasane.worker.data.response.RegisterResponse
+import corp.jasane.worker.data.response.TakeJobResponse
 import corp.jasane.worker.data.response.WorkDetail
 import retrofit2.Call
 import retrofit2.http.Field
@@ -20,6 +23,26 @@ interface ApiService {
         @Field("password") password: String
     ): Call<LoginResponse>
 
+    @FormUrlEncoded
+    @POST("api/register/user")
+    fun register(
+        @Field("fullname") fullName: String,
+        @Field("telephone") telephone: String,
+        @Field("email") email: String,
+        @Field("password") password: String,
+        @Field("password_confirmation") passwordConfirmation: String
+    ): Call<RegisterResponse>
+
+    @FormUrlEncoded
+    @POST("api/place-an-offer")
+    fun offerJob(
+        @Field("work_id") workId: Int,
+        @Field("address_id") addressId: Int,
+        @Field("tariff") offer: String,
+        @Field("experience") experience: String,
+        @Header("Authorization") authorization: String
+    ): Call<TakeJobResponse>
+
     @GET("api/home/user")
     fun home(
         @Header("Authorization") authorization: String
@@ -30,6 +53,12 @@ interface ApiService {
         @Path("id") id: Int,
         @Header("Authorization") authorization: String
     ): Call<GetWorkResponse>
+
+    @GET("api/get-job/{id}")
+    fun getJobDetail(
+        @Path("id") id: Int,
+        @Header("Authorization") authorization: String
+    ): Call<GetJobDetailResponse>
 
 //    @FormUrlEncoded
 //    @POST("register")
