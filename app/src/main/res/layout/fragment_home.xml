@@ -14,15 +14,9 @@
         android:layout_marginTop="@dimen/_13pxv"
         android:layout_width="match_parent"
         android:nestedScrollingEnabled="false"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center_horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         tools:listitem="@layout/item_worker"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/anggaran"
-        android:layout_gravity="center" />
 
 </FrameLayout>

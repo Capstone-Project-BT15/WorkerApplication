@@ -1,35 +1,50 @@
 package corp.jasane.worker.modules.home.ui
 
-import android.app.Activity
 import android.app.Dialog
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import corp.jasane.worker.R
-import corp.jasane.worker.modules.detailJob.ui.detailJobActivity
+import corp.jasane.worker.databinding.ActivityHomeBinding
+import corp.jasane.worker.modules.ViewModelFactory
 import corp.jasane.worker.modules.home.data.viewModel.HomeActivityViewModel
 import corp.jasane.worker.modules.homeFragment.ui.HomeFragment
 import corp.jasane.worker.modules.maps.ui.MapsFragment
 import corp.jasane.worker.modules.offers.ui.OffersFragment
 import corp.jasane.worker.modules.profile.ui.ProfileFragment
 
-@Suppress("DEPRECATION")
 class HomeActivity : AppCompatActivity() {
 
+    private val viewModel by viewModels<HomeActivityViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
     private lateinit var progressDialog: Dialog
+    private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        progressDialog = Dialog(this)
-        progressDialog.setContentView(R.layout.progress_dialog)
-        progressDialog.setCancelable(false)
-        progressDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+//        progressDialog = Dialog(this)
+//        progressDialog.setContentView(R.layout.progress_dialog)
+//        progressDialog.setCancelable(false)
+//        progressDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+//
+//        showLoading()
+//
+//        viewModel.getSession().observe(this) { user ->
+//            if (!user.isLogin) {
+//                startActivity(Intent(this, LoginActivity::class.java))
+//                finish()
+//            } else {
+////                getData()
+//                hideLoading()
+//            }
+//        }
 
         val homeFragment = HomeFragment()
         val profileFragment = ProfileFragment()
@@ -66,11 +81,11 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun showLoading() {
-        progressDialog.show()
-    }
-
-    private fun hideLoading() {
-        progressDialog.dismiss()
-    }
+//    private fun showLoading() {
+//        progressDialog.show()
+//    }
+//
+//    private fun hideLoading() {
+//        progressDialog.dismiss()
+//    }
 }

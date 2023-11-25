@@ -77,6 +77,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     implementation 'com.google.android.gms:play-services-maps:18.2.0'
     implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation 'androidx.work:work-runtime-ktx:2.9.0'
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.2'
 
@@ -86,5 +87,12 @@ dependencies {
 
     implementation("androidx.security:security-crypto:1.0.0")
     implementation "com.airbnb.android:lottie:3.4.0"
+
+    //local storage
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.activity:activity-ktx:1.8.1")
+    implementation("androidx.datastore:datastore-core:1.0.0")
 
 }

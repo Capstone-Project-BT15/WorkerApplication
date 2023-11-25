@@ -55,5 +55,10 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
     <string name="lbl_Description">Explain the experience</string>
     <string name="pasang_penawaran">Place Bid</string>
     <string name="pin_point">PinPoint: %s</string>
-
+    <string name="yeah">Yeah!</string>
+    <string name="berhasil_login">You have successfully logged in. Excited to start learning?</string>
+    <string name="gagal_login">Login Failed</string>
+    <string name="gagal_memuat_data">Failed to load data. Please check your internet connection or try again later.</string>
+    <string name="username_password_salah">Incorrect Username or Password</string>
+    <string name="oke">OK</string>
 </resources>

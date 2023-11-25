@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modules.detailJob.ui.detailJobActivity">
+    tools:context=".modules.detailJob.ui.DetailJobActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageHeroOnboarding"
+                android:id="@+id/imageWork"
                 android:layout_width="@dimen/_360pxh"
                 android:layout_height="@dimen/_250pxh"
                 android:scaleType="fitXY"
@@ -57,6 +57,7 @@
             app:layout_constraintTop_toBottomOf="@+id/titleJob" />
 
         <TextView
+            android:id="@+id/min_budget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_4pxv"
@@ -83,7 +84,7 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/max_budget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_4pxv"
@@ -107,7 +108,7 @@
             app:cardCornerRadius="@dimen/_12pxh"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4">
+            app:layout_constraintTop_toBottomOf="@+id/max_budget">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -127,6 +128,7 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
+                    android:id="@+id/start_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -160,6 +162,7 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
+                    android:id="@+id/type_work"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -191,6 +194,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/job_distance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -268,7 +272,7 @@
             app:layout_constraintTop_toBottomOf="@+id/title_description" />
 
         <Button
-            android:id="@+id/loginButton"
+            android:id="@+id/take_job"
             android:layout_width="0dp"
             android:layout_height="@dimen/_44pxh"
             android:layout_marginStart="32dp"

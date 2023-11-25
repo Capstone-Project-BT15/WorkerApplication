@@ -24,7 +24,7 @@ class TakeJobActivity : AppCompatActivity() {
 
         locationString = intent.getStringExtra("location") ?: ""
 
-        // Extract latitude and longitude from locationString
+
         val startIndex = locationString.indexOf("(")
         val endIndex = locationString.indexOf(")")
         if (startIndex != -1 && endIndex != -1) {
@@ -35,7 +35,6 @@ class TakeJobActivity : AppCompatActivity() {
                 val longitude = latLngArray[1].toDouble()
                 val position = LatLng(latitude, longitude)
 
-                // Check if position is not null before calling updateAddressText
                 position?.let {
                     updateAddressText(it)
                 }

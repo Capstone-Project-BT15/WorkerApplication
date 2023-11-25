@@ -5,6 +5,8 @@ Built with AndroidX Support
 
 Android Studio Giraffe | 2022.3.1 Patch 1
 
+Android Gradle Version 8.1.1
+
 Current Kotlin Version 1.9.0
 
 ### SDK Versions

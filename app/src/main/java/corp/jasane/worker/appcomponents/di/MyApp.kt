@@ -2,8 +2,12 @@ package corp.jasane.worker.appcomponents.di
 
 import android.app.Application
 import corp.jasane.worker.appcomponents.utility.PreferenceHelper
+import corp.jasane.worker.modules.home.data.viewModel.HomeActivityViewModel
+import org.koin.android.ext.android.get
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import org.koin.androidx.viewmodel.compat.ScopeCompat.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
@@ -33,8 +37,15 @@ class MyApp : Application() {
             single {
                 PreferenceHelper()
             }
+            single { HomeActivityViewModel(get()) }
         }
         return prefsModule
+    }
+
+    private fun homeViewModelModule(): Module {
+        return module(override = true) {
+            viewModel { HomeActivityViewModel(get()) }
+        }
     }
 
     /**
@@ -43,7 +54,8 @@ class MyApp : Application() {
      */
     private fun getKoinModules(): MutableList<Module> {
         val koinModules = mutableListOf<Module>()
-        koinModules.add(preferenceModule()) //register preference module
+        koinModules.add(preferenceModule())
+        koinModules.add(homeViewModelModule())
         return koinModules
     }
 
