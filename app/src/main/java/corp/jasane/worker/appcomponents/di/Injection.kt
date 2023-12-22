@@ -5,7 +5,9 @@ import corp.jasane.worker.data.UserRepository
 import corp.jasane.worker.data.pref.UserPreference
 import corp.jasane.worker.data.pref.dataStore
 import corp.jasane.worker.data.retrofit.ApiConfig
+import corp.jasane.worker.data.retrofit.ApiConfigOCR
 import corp.jasane.worker.data.retrofit.ApiService
+import corp.jasane.worker.data.retrofit.ApiServiceOCR
 
 object Injection {
     fun provideRepository(context: Context): UserRepository {
@@ -17,10 +19,8 @@ object Injection {
         return ApiConfig.apiInstant
     }
 
-//    fun provideStoryRepository(context: Context, userPreference: UserPreference): StoryRepository {
-////        val database = StoryDatabase.getDatabase(context)
-//        val apiService = ApiConfig.apiInstant
-//        return StoryRepository(database, apiService, userPreference)
-//    }
+    fun provideApiServiceOCR(): ApiServiceOCR {
+        return ApiConfigOCR.apiInstant
+    }
 
 }

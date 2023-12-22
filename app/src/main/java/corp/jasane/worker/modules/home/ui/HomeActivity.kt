@@ -21,19 +21,12 @@ class HomeActivity : AppCompatActivity() {
     private val viewModel by viewModels<HomeActivityViewModel> {
         ViewModelFactory.getInstance(this)
     }
-    private lateinit var progressDialog: Dialog
     private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-//        progressDialog = Dialog(this)
-//        progressDialog.setContentView(R.layout.progress_dialog)
-//        progressDialog.setCancelable(false)
-//        progressDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-//
 //        showLoading()
 //
 //        viewModel.getSession().observe(this) { user ->
@@ -57,35 +50,29 @@ class HomeActivity : AppCompatActivity() {
         bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.homeId -> setCurrentFragment(homeFragment)
-                R.id.jobId -> setCurrentFragment(mapsFragment)
-                R.id.offerId -> setCurrentFragment(offersFragment)
+                R.id.jobId -> setCurrentFragment(homeFragment)
+                R.id.offerId -> setCurrentFragment(profileFragment)
                 R.id.profileId -> setCurrentFragment(profileFragment)
             }
-            true //returns true value
+            true
         }
     }
 
     private fun setCurrentFragment(fragment: Fragment) {
-        supportFragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        if (!supportFragmentManager.isStateSaved) {
+            supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
 
-        supportFragmentManager.beginTransaction().apply {
-            setCustomAnimations(
-                R.anim.slide_in_from_right,
-                R.anim.slide_out_to_left,
-                R.anim.slide_in_from_left,
-                R.anim.slide_out_to_right
-            )
-            replace(R.id.fragment_container, fragment)
-//            addToBackStack(null)
-            commitNow()
+            supportFragmentManager.beginTransaction().apply {
+                setCustomAnimations(
+                    R.anim.slide_in_from_right,
+                    R.anim.slide_out_to_left,
+                    R.anim.slide_in_from_left,
+                    R.anim.slide_out_to_right
+                )
+                replace(R.id.fragment_container, fragment)
+                addToBackStack(null)
+                commitAllowingStateLoss()
+            }
         }
     }
-
-//    private fun showLoading() {
-//        progressDialog.show()
-//    }
-//
-//    private fun hideLoading() {
-//        progressDialog.dismiss()
-//    }
 }

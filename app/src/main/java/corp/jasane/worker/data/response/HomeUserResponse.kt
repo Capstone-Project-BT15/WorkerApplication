@@ -14,7 +14,7 @@ data class Meta(
 )
 
 data class HomeUserData(
-    @SerializedName("closest_work") val closestWork: WorkDetail,
+    @SerializedName("closest_work") val closestWork: List<WorkDetail>,
     @SerializedName("all_works_with_distance") val allWorksWithDistance: List<WorkDetail>
 )
 

@@ -128,7 +128,8 @@ class TakeJobActivity : AppCompatActivity() {
     private fun setupAction() {
         binding.button.setOnClickListener {
             showLoading()
-            val offer = binding.offerEditText.text.toString()
+            val offerString = binding.offerEditText.text.toString()
+            val offer = offerString.filter { it.isDigit() }.toIntOrNull()?.toString() ?: ""
             val experience = binding.editDescription.text.toString()
             val workId = intent.getIntExtra(DetailJobActivity.EXTRA_ID, 0)
             Log.d("offerJobviewmodel", "$workId, $addressId, $offer, $experience")

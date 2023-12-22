@@ -6,17 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".modules.homeFragment.ui.HomeFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pekerjaan_terdekat"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_24sp"
+        android:layout_marginTop="@dimen/_8pxh"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerListWorker"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_13pxh"
         android:layout_marginStart="@dimen/_9pxh"
-        android:layout_marginTop="@dimen/_13pxv"
+        android:layout_marginTop="@dimen/_60pxv"
         android:layout_width="match_parent"
         android:nestedScrollingEnabled="false"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-        tools:listitem="@layout/item_worker"/>
+        tools:listitem="@layout/item_worker"
+        tools:itemCount="2"/>
 
 </FrameLayout>

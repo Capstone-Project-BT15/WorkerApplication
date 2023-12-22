@@ -11,6 +11,8 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="4dp"
+    card_view:cardElevation="@dimen/_8pxh"
+    card_view:cardBackgroundColor="@color/gray_100"
     card_view:cardCornerRadius="@dimen/_20pxh">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,16 +45,21 @@
             android:layout_marginStart="@dimen/_4pxh"
             android:layout_marginEnd="8dp"
             android:layout_toEndOf="@id/cardViewImage"
-            android:textSize="@dimen/_10sp"
+            android:textSize="@dimen/_12sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_2pxh"
+            android:background="@drawable/rectangle_bg_gray_100"
             card_view:layout_constraintHorizontal_bias="0.421"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage"
             tools:text="@string/job_name" />
 
         <ImageView
-            android:layout_width="12dp"
-            android:layout_height="12dp"
+            android:layout_width="@dimen/_14pxh"
+            android:layout_height="@dimen/_14pxh"
+            android:layout_marginEnd="@dimen/_8pxh"
+            android:layout_marginTop="@dimen/_4pxh"
             android:src="@drawable/baseline_location_on_24"
             card_view:layout_constraintEnd_toStartOf="@+id/job_distance"
             card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage" />
@@ -63,13 +70,13 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/cardViewImage"
             android:layout_marginEnd="@dimen/_4pxh"
-            android:textSize="@dimen/_10sp"
+            android:textSize="@dimen/_12sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_2pxh"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage"
             tools:text="@string/jarak" />
-
-
 
         <TextView
             android:id="@+id/job_detail"
@@ -79,6 +86,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="0dp"
             android:textStyle="bold"
+            android:textSize="@dimen/_20sp"
+            android:textColor="@color/black"
             card_view:layout_constraintStart_toStartOf="@+id/job_distance"
             card_view:layout_constraintTop_toBottomOf="@+id/job_distance"
             tools:text="@string/job_name" />
@@ -89,7 +98,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_4pxv"
             android:layout_marginStart="@dimen/_4pxv"
-            android:textSize="@dimen/_8sp"
+            android:textSize="@dimen/_10sp"
+            android:textColor="@color/black"
             android:text="@string/anggaran"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/job_detail"
@@ -103,7 +113,7 @@
             android:layout_marginStart="@dimen/_4pxv"
             android:text="@string/biaya_terendah"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10sp"
+            android:textSize="@dimen/_12sp"
             card_view:layout_constraintHorizontal_bias="0.95"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/budget" />
@@ -115,7 +125,7 @@
             android:layout_marginTop="@dimen/_4pxv"
             android:text="@string/strip"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10sp"
+            android:textSize="@dimen/_12sp"
             android:layout_marginStart="@dimen/_4pxv"
             card_view:layout_constraintStart_toEndOf="@+id/lowPrice"
             card_view:layout_constraintTop_toBottomOf="@+id/budget"
@@ -129,7 +139,7 @@
             android:layout_marginTop="@dimen/_4pxv"
             android:text="@string/biaya_tertinggi"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10sp"
+            android:textSize="@dimen/_12sp"
             card_view:layout_constraintStart_toEndOf="@+id/textView6"
             card_view:layout_constraintTop_toBottomOf="@+id/budget" />
     </androidx.constraintlayout.widget.ConstraintLayout>

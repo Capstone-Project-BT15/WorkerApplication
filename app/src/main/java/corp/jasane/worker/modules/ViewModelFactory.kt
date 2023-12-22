@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import corp.jasane.worker.appcomponents.di.Injection
 import corp.jasane.worker.data.UserRepository
 import corp.jasane.worker.data.retrofit.ApiService
+import corp.jasane.worker.data.retrofit.ApiServiceOCR
+import corp.jasane.worker.modules.biodata.data.BiodataActivityVM
 import corp.jasane.worker.modules.detailJob.data.viewModel.DetailJobViewModel
 import corp.jasane.worker.modules.home.data.viewModel.HomeActivityViewModel
 import corp.jasane.worker.modules.homeFragment.data.viewModel.HomeFragmentViewModel
@@ -13,10 +15,12 @@ import corp.jasane.worker.modules.login.data.viewmodel.LoginActivityViewModel
 import corp.jasane.worker.modules.profile.data.viewModel.ProfileFragmentViewModel
 import corp.jasane.worker.modules.register.data.viewModel.RegisterActivityViewModel
 import corp.jasane.worker.modules.takeJob.data.viewModel.TakeJobViewModel
+import corp.jasane.worker.modules.verificationBiodata.verificationTwo.data.VerificationTwoActivityVM
 
 class ViewModelFactory(
     private val userRepository: UserRepository,
     private val apiService: ApiService,
+    private val apiServiceOCR: ApiServiceOCR
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -43,6 +47,12 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(TakeJobViewModel::class.java) -> {
                 TakeJobViewModel(apiService, userRepository) as T
             }
+            modelClass.isAssignableFrom(VerificationTwoActivityVM::class.java) -> {
+                VerificationTwoActivityVM(apiServiceOCR) as T
+            }
+            modelClass.isAssignableFrom(BiodataActivityVM::class.java) -> {
+                BiodataActivityVM(apiService, userRepository) as T
+            }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }
@@ -57,6 +67,7 @@ class ViewModelFactory(
                     INSTANCE = ViewModelFactory(
                         Injection.provideRepository(context),
                         Injection.provideApiService(),
+                        Injection.provideApiServiceOCR(),
                     )
                 }
             }

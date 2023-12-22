@@ -27,12 +27,13 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import corp.jasane.worker.R
 import corp.jasane.worker.modules.takeJob.ui.TakeJobActivity
 import java.io.IOException
 import java.util.*
 
-class MapsFragment : Fragment() {
+class MapsFragment : BottomSheetDialogFragment() {
 
     private lateinit var textView: TextView
     private lateinit var button: Button
@@ -40,14 +41,28 @@ class MapsFragment : Fragment() {
     private var userLocationMarker: Marker? = null
     private var googleMap: GoogleMap? = null
     private lateinit var progressDialog: Dialog
+    interface OnLocationSelectedListener {
+        fun onLocationSelected(latLng: LatLng)
+        fun onLocation(latLng: LatLng)
+    }
+
+    private var locationSelectedListener: OnLocationSelectedListener? = null
+    private var locationListener: OnLocationSelectedListener? = null
+
+    fun setLocationSelectedListener(listener: OnLocationSelectedListener) {
+        locationSelectedListener = listener
+    }
+    fun setLocationListener(listener: OnLocationSelectedListener) {
+        locationListener = listener
+    }
 
     private val callback = OnMapReadyCallback { map ->
         googleMap = map
-        showUserLocation(googleMap!!)
         googleMap?.setOnMapClickListener { latLng ->
             updateMarkerPosition(latLng)
             updateAddressText(latLng)
         }
+        showUserLocation(googleMap!!)
     }
 
     override fun onCreateView(
@@ -60,7 +75,7 @@ class MapsFragment : Fragment() {
         progressDialog.setCancelable(false)
         progressDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
         val view = inflater.inflate(R.layout.fragment_maps, container, false)
-        textView = view.findViewById(R.id.textView)
+        textView = view.findViewById(R.id.text_view_location)
         button = view.findViewById(R.id.button)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
         return view
@@ -77,10 +92,10 @@ class MapsFragment : Fragment() {
             Log.d("location User", "$markerPosition")
             updateAddressText(markerPosition)
             textView.invalidate()
-            val intent = Intent(requireContext(), TakeJobActivity::class.java)
-            // Pass any data you want to the TakeJobActivity using intent extras
-            intent.putExtra("location", markerPosition?.toString())
-            startActivity(intent)
+            dismiss()
+//            val intent = Intent(requireContext(), AddJobFragment::class.java)
+//            intent.putExtra("location", markerPosition?.toString())
+//            startActivity(intent)
         }
 
         if (ContextCompat.checkSelfPermission(
@@ -125,6 +140,8 @@ class MapsFragment : Fragment() {
                         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLatLng, 15f))
                         updateAddressText(userLatLng)
                         hideLoading()
+//                        (activity as? AddJobFragment)?.showUserLocation(LatLng(it.latitude, it.longitude))
+                        locationSelectedListener?.onLocation(LatLng(it.latitude, it.longitude))
                     }
                 }
         }
@@ -150,6 +167,7 @@ class MapsFragment : Fragment() {
     private fun updateMarkerPosition(latLng: LatLng) {
         showLoading()
         userLocationMarker?.position = latLng
+        locationSelectedListener?.onLocationSelected(latLng)
         hideLoading()
     }
 
@@ -170,7 +188,10 @@ class MapsFragment : Fragment() {
         when (requestCode) {
             REQUEST_LOCATION_PERMISSION -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    showUserLocation(googleMap!!)
+                    googleMap?.let {
+                        showUserLocation(it)
+                    }
+//                    showUserLocation(googleMap!!)
                 } else {
                     Toast.makeText(
                         requireContext(),

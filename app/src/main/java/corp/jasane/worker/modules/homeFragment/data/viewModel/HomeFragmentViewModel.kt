@@ -1,7 +1,6 @@
 package corp.jasane.worker.modules.homeFragment.data.viewModel
 
 import android.util.Log
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,7 +15,6 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.math.log
 
 class HomeFragmentViewModel(private val userRepository: UserRepository, private val apiService: ApiService): ViewModel() {
 
@@ -28,6 +26,7 @@ class HomeFragmentViewModel(private val userRepository: UserRepository, private 
             userRepository.getSession().collect {
                 if (it.isLogin) {
                     fetchWorkDetails(it.access_token)
+                    Log.d("token", it.access_token)
                 }
             }
         }
@@ -38,8 +37,10 @@ class HomeFragmentViewModel(private val userRepository: UserRepository, private 
             override fun onResponse(call: Call<HomeUserResponse>, response: Response<HomeUserResponse>) {
                 if (response.isSuccessful) {
                     val homeUserResponse = response.body()
-                    val allWorksWithDistance = homeUserResponse?.data?.allWorksWithDistance.orEmpty()
-                    _workDetails.value = allWorksWithDistance
+                    Log.d("homeUserResponse", "$homeUserResponse")
+                    val closestWork = homeUserResponse?.data?.closestWork.orEmpty()
+                    Log.d("closestWork", "$closestWork")
+                    _workDetails.value = closestWork
                 } else {
                     // Handle error
                 }

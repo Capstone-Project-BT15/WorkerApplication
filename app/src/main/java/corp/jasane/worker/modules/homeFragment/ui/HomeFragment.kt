@@ -18,10 +18,12 @@ import corp.jasane.worker.data.response.WorkDetail
 import corp.jasane.worker.databinding.ActivityHomeBinding
 import corp.jasane.worker.databinding.FragmentHomeBinding
 import corp.jasane.worker.modules.ViewModelFactory
+import corp.jasane.worker.modules.biodata.ui.BiodataActivity
 import corp.jasane.worker.modules.detailJob.ui.DetailJobActivity
 import corp.jasane.worker.modules.home.data.viewModel.HomeActivityViewModel
 import corp.jasane.worker.modules.homeFragment.data.viewModel.HomeFragmentViewModel
 import corp.jasane.worker.modules.login.ui.LoginActivity
+import corp.jasane.worker.modules.verificationBiodata.verificationTwo.VerificationTwoActivity
 
 class HomeFragment : Fragment() {
 
@@ -39,8 +41,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        val homeViewModel =
-//            ViewModelProvider(this).get(HomeActivityViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root

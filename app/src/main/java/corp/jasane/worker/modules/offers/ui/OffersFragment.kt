@@ -10,43 +10,34 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import corp.jasane.worker.R
+import corp.jasane.worker.databinding.FragmentOffersBinding
 
 class OffersFragment : Fragment() {
+
+    private lateinit var binding: FragmentOffersBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_offers, container, false)
-
-        val viewPager2: ViewPager2 = view.findViewById(R.id.viewPager2)
-        val tabLayout: TabLayout = view.findViewById(R.id.tabLayout)
-
-        val adapter = FragmentPageAdapter(childFragmentManager, lifecycle)
-        viewPager2.adapter = adapter
-
-        TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
-            tab.text = getTabTitle(position)
-        }.attach()
-
-        viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                handleTabSelection(position)
-            }
-        })
-
+        binding = FragmentOffersBinding.bind(view)
         return view
     }
 
-    private fun getTabTitle(position: Int): String {
-        return when (position) {
-            0 -> "Pending"
-            1 -> "Accepted"
-            2 -> "Finish"
-            else -> "Reject"
-        }
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    private fun handleTabSelection(position: Int) {
+        val bundle = Bundle()
+        val viewPager2: ViewPager2 = view.findViewById(R.id.viewPager2)
+        val tabLayout: TabLayout = view.findViewById(R.id.tabLayout)
+
+        val adapter = FragmentPageAdapter(requireContext(), childFragmentManager, lifecycle, bundle)
+
+        viewPager2.adapter = adapter
+
+        TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
+            tab.text = adapter.getPageTitle(position)
+        }.attach()
     }
 }

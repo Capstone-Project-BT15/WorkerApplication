@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -37,7 +38,9 @@ class DetailJobActivity : AppCompatActivity() {
         progressDialog.setCancelable(false)
         progressDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
+//        val id = intent.getIntExtra(EXTRA_ID, 0)
         val id = intent.getIntExtra(EXTRA_ID, 0)
+        Log.d("id", "$id")
         viewModel.init(id)
 
 
